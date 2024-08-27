@@ -1,0 +1,29 @@
+Aloitin harjoituksen lataamalla ensin Debian ISO-tiedoston, jonka avulla pystyn asentamaan Debian Linuxin VirtualBoxiin. Tämän jälkeen latasin VirtualBoxin ja tein tarvittavat määritykset ennen asennusta.
+Seuraavaksi aloitan Linuxin asentamisen VirtualBoxiin. Valitaan New  Create Virtual Machine ja valitaan Expert Mode. Annetaan virtuaalikoneelle nimeksi DebianRalphSivanneCom ja valitaan aikaisemmin ladattu ISO-tiedosto. Tyyppi on Linux ja versio vaihdetaan 64-bittiseksi Debianiksi. Muistia virtuaalikoneelle määritetään 4000 MB ja checkataan ”Create a virtual hard disk now”. Virtuaalisen kovalevyn koko määritetään 60 GB.
+
+Virtuaalikone on nyt luotu ja se on ilmestynyt VirtualBox Manageriin. Seuraavaksi määritetään asetukset virtuaalikoneelle ”DebianRalphSivanneCom”.
+Valitaan asetuksista Storage-täbi ja mennään määrittämään ”CD-levy”, jolta Linux asennus tapahtuu. ISO-tiedosto kumminkin löytyy jo oikeasta kohdasta, koska tein määrityksen virtuaalikoneen luomisen yhteydessä.
+
+Seuraavaksi käynnistetään virtuaalikone. Virtuaalikoneen käynnistäminen sai oman tietokoneeni jäätymään puoleksi tunniksi? Käynnistin koneeni uudelleen ja aloitin alusta. Poistin aikaisemmin asennetun koneen ja tein uudet määritykset uudelle virtuaalikoneelle. Tällä kertaa laitoin muistia 2000 MB (4000 MB sijasta). Käynnistyksen jälkeen aukeaa seuraava näkymä:
+
+![Screenshot1](https://github.com/user-attachments/assets/c61be856-7853-4bd9-a074-2b51d035bbd8)
+
+Kokeillaan toimiiko verkkoselain. Ohjeiden mukaisesti etsin Googlen avulla Tero Karvinen ja päädyin kurssisivulle onnistuneesti. Seuraava vaihe on asentaa Debian. Tehdään tarvittavat määritykset eli sijainti, näppäimistökieli, käyttäjätiedot ja lopuksi asennus.
+
+![sc3](https://github.com/user-attachments/assets/91d28880-dc64-41dd-83d7-56f55856a4b7)
+
+Asennus kesti lyhyemmän aikaa kuin ohjeissa, mutta aluksi kirjautuminen ei onnistunut ollenkaan, sillä virtuaalikone oli ”väärä”? Käynnistin virtuaalikoneen uudestaan ja nyt näkymässä oli asettamani virtuaalikoneen nimi. Kirjautuminen sisään onnistui. Kokeillaan taas verkkoselainta ja huomataan, että kaikki toimii.
+Seuraavaksi mennnään kohtaan Application  Terminal Emulator ja kirjoitetaan riville $ sudo apt-get update.
+Nyt päivitysten pariin. Aikaisemman komennon jälkeen syötän salasanan ja seuraavan kehotteen $ sudo apt-get -y dist-upgrade, mutta saan viestiksi ”dpkg was interrupted, you must manually run sudo dpkg –configure -a”. Kokeilen seuraavaa komentoa ja sen jälkeen uudestaan alkuperäistä upgrade-komentoa. Nyt asennus meni läpi.
+
+![sc5](https://github.com/user-attachments/assets/e8a5188e-97fb-4e05-8e8d-2d0d0a92b82d)
+
+Seuraavassa vaiheessa asennetaan palomuuri komennoilla:
+$ sudo apt-get -y install ufw
+$ sudo ufw enable
+Asennuksen ja käyttöönoton jälkeen käynnistetään virtuaalikone uudestaan.
+
+![scwf6](https://github.com/user-attachments/assets/4b12d98d-4a40-41d0-b641-d3d1c0385162)
+
+Lähteet:
+https://terokarvinen.com/2021/install-debian-on-virtualbox/
