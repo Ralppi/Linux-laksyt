@@ -1,2 +1,2 @@
-# Linuxh0.md
-Linux-palvelin kotiläksy h0
+# Linux_Ralph.md
+Linux-palvelin kotiläksyt
